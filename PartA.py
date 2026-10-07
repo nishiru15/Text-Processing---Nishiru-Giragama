@@ -27,3 +27,8 @@ def computeWordFrequencies(tokenList):
         
     return tokenOccs
 
+def void print(frequencies):
+    sortedFreq = frequencies(sorted(frequencies.items()))
+    for key, value in frequencies:
+        print(key + ": " + value)
+
