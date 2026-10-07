@@ -19,3 +19,11 @@ def tokenize(textFilePath: str):
             print("Error: File path not found")
 
         return tokens
+
+def computeWordFrequencies(tokenList):
+    tokenOccs = {}
+    for token in tokenList:
+        tokenOccs[token]+=1
+        
+    return tokenOccs
+
