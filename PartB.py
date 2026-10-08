@@ -2,7 +2,7 @@ import PartA
 import sys
 
 def main():
-    #the time complexity for this is O(n) because it only goes through each files token characters once
+    #the time complexity for this is O(n) where n is the number of characters of fileOne+fileTwo because it only goes through each files characters once
     if len(sys.argv) <3:
         print("Need to enter in form python PartB.py <file1> <file2>")
         sys.exit(1)

@@ -1,6 +1,6 @@
 import sys
 def tokenize(textFilePath: str):
-    #the time complexity for this is O(n) because each character is only being iterated through once
+    #the time complexity for this is O(n) where n is the number of characters in the file because each character is only being iterated through once
     tokens = [] #token list
     curr = [] #current token
 
@@ -24,7 +24,7 @@ def tokenize(textFilePath: str):
     return tokens
 
 def computeWordFrequencies(tokenList):
-    #the time complexity is O(n) because each token in is only being iterated once
+    #the time complexity is O(n) where n is the number of tokens in each token list because each token in is only being iterated once
     tokenOccs = {}
     for token in tokenList: #goes through each token, and adds 1 to the value of the token, or otherwise creates a key with a value of one if it doesn't exist
         if token in tokenOccs:
@@ -35,12 +35,12 @@ def computeWordFrequencies(tokenList):
     return tokenOccs
 
 def printFreq(frequencies):
-    #the time complexity is O(nlogn) because each item in frequencies is only being iterated through once
+    #the time complexity is O(nlogn) where n is the number of items in the frequency list because each item in frequencies is only being iterated through once
     sortedFreq = sorted(frequencies.items(), key = lambda x: (-x[1], x[0])) #sorts the items in frequencies, and prints each key and value with '->' seperating them
     for key, value in sortedFreq:
         print(key + " -> " + str(value))
 
-if __name__ == "__main__":
+def main():
     if len(sys.argv) < 2:
         print("Need to enter in form python PartA.py <file>")
         sys.exit(1)
@@ -52,3 +52,7 @@ if __name__ == "__main__":
     tokens = tokenize(file)
     frequencies = computeWordFrequencies(tokens)
     printFreq(frequencies)
+
+
+if __name__ == "__main__":
+    main()
