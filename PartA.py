@@ -1,3 +1,4 @@
+import sys
 def tokenize(textFilePath: str):
     tokens = []
     curr = []
@@ -9,26 +10,29 @@ def tokenize(textFilePath: str):
                     if char.isalnum():
                         curr.append(char.lower())
                     elif curr:
-                        tokens.append(curr)
+                        tokens.append("".join(curr))
                         curr = []
 
             if curr:
-                tokens.append(curr)
+                tokens.append("".join(curr))
 
-        except FileNotFoundError:
+    except FileNotFoundError:
             print("Error: File path not found")
 
-        return tokens
+    return tokens
 
 def computeWordFrequencies(tokenList):
     tokenOccs = {}
     for token in tokenList:
-        tokenOccs[token]+=1
+        if token in tokenOccs:
+            tokenOccs[token]+=1
+        else:
+            tokenOccs[token] =1
         
     return tokenOccs
 
-def void print(frequencies):
-    sortedFreq = frequencies(sorted(frequencies.items()))
-    for key, value in frequencies:
-        print(key + ": " + value)
+def printFreq(frequencies):
+    sortedFreq = sorted(frequencies.items())
+    for key, value in sortedFreq:
+        print(key + " -> " + str(value))
 
