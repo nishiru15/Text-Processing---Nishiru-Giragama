@@ -5,10 +5,10 @@ def tokenize(textFilePath: str):
     curr = [] #current token
 
     try:
-        with open(textFilePath, 'r', encoding = 'utf-8') as file: #opens file in read
+        with open(textFilePath, 'r', encoding = 'utf-8', errors = 'ignore') as file: #opens file in read
             for line in file: 
                 for char in line: #for every line, it reads each individual character and checks if it is alphanumerical
-                    if char.isalnum():
+                    if ('a'<= char <= 'z') or ('A' <= char <= 'Z') or ('0' <= char <= '9'):
                         curr.append(char.lower()) #if the character is alphanumerical, it turns it to lowercase, and adds it to the current token
                     elif curr:
                         tokens.append("".join(curr)) #if the character is not alphanumerical it combines the curr list into one string, and adds it to the tokens list
