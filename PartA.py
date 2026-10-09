@@ -50,6 +50,9 @@ def main():
 
     file = sys.argv[1]
     tokens = tokenize(file)
+
+    if tokens is None:
+        sys.exit(1)
     frequencies = computeWordFrequencies(tokens)
     printFreq(frequencies)
 
